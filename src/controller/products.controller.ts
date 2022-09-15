@@ -10,6 +10,13 @@ async function create(req: Request, res: Response): Promise<Response> {
   return res.status(StatusCodes.CREATED).json(product);
 }
 
+async function getAll(_req: Request, res: Response): Promise<Response> {
+  const products = await productsService.getAll();
+
+  return res.status(StatusCodes.OK).json(products);
+}
+
 export default {
   create,
+  getAll,
 };
